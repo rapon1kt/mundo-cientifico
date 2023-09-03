@@ -52,7 +52,7 @@ export default function SignIn() {
 			severity: "success",
 		});
 		setTimeout(() => {
-			router.push("/");
+			router.push("/v1/home");
 			console.log(data);
 		}, 1500);
 	};
