@@ -4,7 +4,8 @@ import { AspectRatio, Container, Box, typographyClasses } from "@mui/joy";
 export default function TwoSidedLayout({
 	children,
 	reversed,
-}: React.PropsWithChildren<{ reversed?: boolean }>) {
+	imageSrc,
+}: React.PropsWithChildren<{ reversed?: boolean; imageSrc: string }>) {
 	return (
 		<Container
 			sx={(theme) => ({
@@ -63,7 +64,7 @@ export default function TwoSidedLayout({
 					flexBasis: "50%",
 				})}
 			>
-				<img src="/assets/logo.png" alt="" />
+				<img src={imageSrc} alt="" />
 			</AspectRatio>
 		</Container>
 	);
