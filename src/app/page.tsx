@@ -1,95 +1,104 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import { ColorSchemeToggle } from "@/components";
+import { Box, CssVarsProvider, Link, Button, Typography } from "@mui/joy";
+import { TwoSidedLayout } from "@/components";
+import ArrowForward from "@mui/icons-material/ArrowForward";
+import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	const router = useRouter();
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+	return (
+		<CssVarsProvider defaultMode="dark" disableTransitionOnChange>
+			<Box
+				sx={(theme) => ({
+					bgcolor: theme.palette.background.body,
+				})}
+			>
+				<Box
+					component="header"
+					sx={{
+						p: 3,
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "space-between",
+					}}
+				>
+					<Typography
+						fontWeight="lg"
+						startDecorator={
+							<Box
+								component="span"
+								sx={{
+									width: 20,
+									height: 20,
+									background: (theme) =>
+										`linear-gradient(45deg, ${theme.vars.palette.primary.solidBg}, ${theme.vars.palette.primary.solidBg} 30%, ${theme.vars.palette.primary.softBg})`,
+									borderRadius: "50%",
+									boxShadow: (theme) => theme.shadow.md,
+									"--joy-shadowChannel": (theme) =>
+										theme.vars.palette.primary.mainChannel,
+								}}
+							/>
+						}
+					>
+						Mundo Científico
+					</Typography>
+					<ColorSchemeToggle />
+				</Box>
+				<TwoSidedLayout imageSrc="/assets/logo.png">
+					<Typography color="primary" fontSize="lg" fontWeight="lg">
+						CONHEÇA AGORA
+					</Typography>
+					<Typography
+						level="h1"
+						fontWeight="xl"
+						fontSize="clamp(1.875rem, 1.3636rem + 2.1818vw, 3rem)"
+					>
+						Método de Ensino
+					</Typography>
+					<Typography fontSize="lg" textColor="text.secondary" lineHeight="lg">
+						Saiba mais sobre o método de ensino FACESM. Como analisar,
+						fundamentar resoluções e resolver com praticidade problemas em
+						ambiente de aprendizado? Clique abaixo e descubra sobre este novo
+						método!
+					</Typography>
+					<Button
+						onClick={() => router.push("/sign-in")}
+						endDecorator={<ArrowForward />}
+						size="lg"
+						fullWidth
+					>
+						Fazer Login
+					</Button>
+					<Typography>
+						Ainda não possue conta?{" "}
+						<Link fontWeight="lg" href="/register">
+							Registre-se aqui!
+						</Link>
+					</Typography>
+					<Typography
+						level="body-xs"
+						sx={{
+							position: "absolute",
+							top: "2rem",
+							left: "50%",
+							transform: "translateX(-50%)",
+						}}
+					>
+						Bem Vindo!
+					</Typography>
+				</TwoSidedLayout>
+			</Box>
+			<Box
+				component="footer"
+				sx={{ py: 3, bgcolor: (theme) => theme.palette.background.body }}
+			>
+				<Typography level="body-xs" textAlign="center">
+					© Mundo Científico - {new Date().getFullYear()}
+				</Typography>
+			</Box>
+		</CssVarsProvider>
+	);
 }
