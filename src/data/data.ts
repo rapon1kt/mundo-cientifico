@@ -5,6 +5,9 @@ const posts = [
 		description:
 			"Solving the yellow corners of a Rubik's Cube is typically the last step in solving the entire cube. The method I'll describe here is a basic one, often referred to as the CFOP method (Cross, F2L, OLL, PLL).",
 		link: `/1`,
+		img: "/assets/rubik.png",
+		author: "raponikt",
+		date: "September 13, 2023",
 	},
 	{
 		key: 2,
@@ -12,6 +15,9 @@ const posts = [
 		description:
 			"Idealism is a philosophical perspective that centers on the belief that reality is fundamentally shaped by the mind or consciousness. It posits that the external world, including the physical universe and everything within it, exists as a product of mental constructs, ideas, or perceptions",
 		link: `/2`,
+		img: "/assets/idealismo.png",
+		author: "raponikt",
+		date: "September 13, 2023",
 	},
 	{
 		key: 3,
@@ -19,6 +25,9 @@ const posts = [
 		description:
 			"The 'Foundation of the Metaphysics of Morals' (in German, 'Grundlegung zur Metaphysik der Sitten') is a philosophical work written by Immanuel Kant, one of the most influential philosophers of the Enlightenment era. It was first published in 1785 and is often considered a foundational text in the field of moral philosophy.",
 		link: `/3`,
+		img: "/assets/fundamentacao.png",
+		author: "raponikt",
+		date: "September 13, 2023",
 	},
 ];
 
