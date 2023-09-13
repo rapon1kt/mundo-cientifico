@@ -32,6 +32,7 @@ export default function PostFeed() {
 						},
 						alignItems: "center",
 						gap: 2,
+						background: (theme) => theme.palette.background.backdrop,
 					}}
 				>
 					<AspectRatio
@@ -44,29 +45,24 @@ export default function PostFeed() {
 							},
 						}}
 					>
-						<img
-							src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
-							srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2 2x"
-							loading="lazy"
-							alt=""
-						/>
+						<img src={post.img} loading="lazy" alt={post.title} />
 					</AspectRatio>
 					<CardContent>
-						<div>
-							<Typography
-								level="h2"
-								endDecorator={
-									<IconButton
-										onClick={() => router.push(`/v1/posts/${post.link}`)}
-									>
-										<IosShare color="primary" />
-									</IconButton>
-								}
-							>
-								{post.title}
-							</Typography>
-							<Typography level="body-md">September 05, 2023</Typography>
-						</div>
+						<Typography
+							level="h2"
+							endDecorator={
+								<IconButton
+									onClick={() => router.push(`/v1/posts/${post.link}`)}
+								>
+									<IosShare color="primary" />
+								</IconButton>
+							}
+						>
+							{post.title}
+						</Typography>
+						<Typography level="body-md" sx={{ fontWeight: 600 }}>
+							{post.author} - {post.date}
+						</Typography>
 						<Typography level="body-lg">{post.description}</Typography>
 					</CardContent>
 				</Card>
