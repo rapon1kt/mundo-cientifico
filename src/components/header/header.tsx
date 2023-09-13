@@ -6,7 +6,8 @@ export default function Header({ children }: { children?: React.ReactNode }) {
 		<Box
 			component="header"
 			sx={{
-				p: 3,
+				px: 6,
+				py: 4,
 				display: "flex",
 				width: "100%",
 				alignItems: "center",
