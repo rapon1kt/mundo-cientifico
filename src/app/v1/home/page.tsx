@@ -1,11 +1,8 @@
 "use client";
-import { MainPost, PostFeed, Header } from "@/components";
-import { Box, Button, CssVarsProvider, Divider, Typography } from "@mui/joy";
-import { useRouter } from "next/navigation";
+import { MainPost, PostFeed, Header, Copyright } from "@/components";
+import { Box, Button, CssVarsProvider, Divider, Link } from "@mui/joy";
 
 export default function Home() {
-	const router = useRouter();
-
 	return (
 		<CssVarsProvider defaultMode="dark" disableTransitionOnChange>
 			<Box
@@ -20,22 +17,13 @@ export default function Home() {
 				<MainPost />
 				<PostFeed />
 				<Divider>
-					<Button
-						variant="outlined"
-						onClick={() => router.push("/v1/posts?query=older")}
-						sx={{ my: 4 }}
-					>
-						Older Posts
-					</Button>
+					<Link href="/v1/posts?query=older">
+						<Button variant="outlined" sx={{ my: 4 }}>
+							Older Posts
+						</Button>
+					</Link>
 				</Divider>
-				<Box
-					component="footer"
-					sx={{ py: 3, bgcolor: (theme) => theme.palette.background.body }}
-				>
-					<Typography level="body-xs" textAlign="center">
-						© Mundo Científico - {new Date().getFullYear()}
-					</Typography>
-				</Box>
+				<Copyright />
 			</Box>
 		</CssVarsProvider>
 	);
