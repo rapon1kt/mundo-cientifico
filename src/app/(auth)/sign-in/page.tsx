@@ -14,7 +14,13 @@ import {
 	Input,
 	Typography,
 } from "@mui/joy";
-import { GoogleIcon, ColorSchemeToggle, AuthAlert, Header } from "@/components";
+import {
+	GoogleIcon,
+	ColorSchemeToggle,
+	AuthAlert,
+	Header,
+	Copyright,
+} from "@/components";
 import { useRouter } from "next/navigation";
 
 interface FormElements extends HTMLFormControlsCollection {
@@ -169,13 +175,8 @@ export default function SignIn() {
 						>
 							Entrar com o Google
 						</Button>
-						H
 					</Box>
-					<Box component="footer" sx={{ py: 3 }}>
-						<Typography level="body-xs" textAlign="center">
-							© Mundo Científico {new Date().getFullYear()}
-						</Typography>
-					</Box>
+					<Copyright />
 				</Box>
 			</Box>
 			<Box

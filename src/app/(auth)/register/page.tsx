@@ -16,7 +16,7 @@ import {
 	FormHelperText,
 } from "@mui/joy";
 import { useRouter } from "next/navigation";
-import { ColorSchemeToggle, AuthAlert, Header } from "@/components";
+import { ColorSchemeToggle, AuthAlert, Header, Copyright } from "@/components";
 
 interface FormElements extends HTMLFormControlsCollection {
 	email: HTMLInputElement;
@@ -187,13 +187,8 @@ export default function JoySignInSideTemplate() {
 								Entrar
 							</Button>
 						</form>
-						H
 					</Box>
-					<Box component="footer" sx={{ py: 3 }}>
-						<Typography level="body-xs" textAlign="center">
-							© Mundo Científico {new Date().getFullYear()}
-						</Typography>
-					</Box>
+					<Copyright />
 				</Box>
 			</Box>
 			<Box
