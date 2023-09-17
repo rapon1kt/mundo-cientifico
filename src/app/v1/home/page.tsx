@@ -1,5 +1,5 @@
 "use client";
-import { MainPost, PostFeed, Header, Copyright } from "@/components";
+import { MainPost, PostFeed, NavBar, Copyright } from "@/components";
 import { Box, Button, CssVarsProvider, Divider, Link } from "@mui/joy";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
 					alignItems: "center",
 				})}
 			>
-				<Header />
+				<NavBar home />
 				<MainPost />
 				<PostFeed />
 				<Divider>
