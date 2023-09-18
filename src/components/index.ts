@@ -6,3 +6,4 @@ export { default as MainPost } from "./main-post/main-post";
 export { default as PostFeed } from "./post-feed/post-feed";
 export { default as Header } from "./header/header";
 export { default as Copyright } from "./copyright/copyright";
+export { default as NavBar } from "./navbar/navbar";
