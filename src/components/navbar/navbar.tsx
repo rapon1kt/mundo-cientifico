@@ -44,6 +44,7 @@ export default function NavBar({ home }: { home?: boolean }) {
 	return (
 		<Box
 			sx={{
+				bgcolor: (theme) => theme.palette.background.body,
 				py: 4,
 				px: 5,
 				width: "100%",
