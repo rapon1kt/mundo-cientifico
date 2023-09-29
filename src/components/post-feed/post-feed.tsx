@@ -10,7 +10,7 @@ import {
 import { useRouter } from "next/navigation";
 import { posts } from "@/data";
 
-export default function PostFeed() {
+export default function PostFeed({ older }: { older?: boolean }) {
 	const router = useRouter();
 
 	return (
@@ -18,55 +18,107 @@ export default function PostFeed() {
 			maxWidth="lg"
 			sx={{ display: "flex", flexDirection: "column", gap: 4, mb: 2 }}
 		>
-			{posts.map((post) => (
-				<Card
-					variant="outlined"
-					color="primary"
-					key={post.key}
-					sx={{
-						p: 4,
-						display: "flex",
-						flexDirection: {
-							xs: "column",
-							md: "row",
-						},
-						alignItems: "center",
-						gap: 2,
-						background: (theme) => theme.palette.background.backdrop,
-					}}
-				>
-					<AspectRatio
-						variant="outlined"
-						color="primary"
-						sx={{
-							width: {
-								xs: "100%",
-								md: 300,
-							},
-						}}
-					>
-						<img src={post.img} loading="lazy" alt={post.title} />
-					</AspectRatio>
-					<CardContent>
-						<Typography
-							level="h2"
-							endDecorator={
-								<IconButton
-									onClick={() => router.push(`/v1/posts/${post.link}`)}
+			{older
+				? posts
+						.map((post) => (
+							<Card
+								variant="outlined"
+								color="primary"
+								key={post.key}
+								sx={{
+									p: 4,
+									display: "flex",
+									flexDirection: {
+										xs: "column",
+										md: "row",
+									},
+									alignItems: "center",
+									gap: 2,
+									background: (theme) => theme.palette.background.backdrop,
+								}}
+							>
+								<AspectRatio
+									variant="outlined"
+									color="primary"
+									sx={{
+										width: {
+											xs: "100%",
+											md: 300,
+										},
+									}}
 								>
-									<IosShare color="primary" />
-								</IconButton>
-							}
+									<img src={post.img} loading="lazy" alt={post.title} />
+								</AspectRatio>
+								<CardContent>
+									<Typography
+										level="h2"
+										endDecorator={
+											<IconButton
+												onClick={() => router.push(`/v1/posts/${post.link}`)}
+											>
+												<IosShare color="primary" />
+											</IconButton>
+										}
+									>
+										{post.title}
+									</Typography>
+									<Typography level="body-md" sx={{ fontWeight: 600 }}>
+										{post.author} - {post.date}
+									</Typography>
+									<Typography level="body-lg">{post.description}</Typography>
+								</CardContent>
+							</Card>
+						))
+						.reverse()
+				: posts.map((post) => (
+						<Card
+							variant="outlined"
+							color="primary"
+							key={post.key}
+							sx={{
+								p: 4,
+								display: "flex",
+								flexDirection: {
+									xs: "column",
+									md: "row",
+								},
+								alignItems: "center",
+								gap: 2,
+								background: (theme) => theme.palette.background.backdrop,
+							}}
 						>
-							{post.title}
-						</Typography>
-						<Typography level="body-md" sx={{ fontWeight: 600 }}>
-							{post.author} - {post.date}
-						</Typography>
-						<Typography level="body-lg">{post.description}</Typography>
-					</CardContent>
-				</Card>
-			))}
+							<AspectRatio
+								variant="outlined"
+								color="primary"
+								sx={{
+									width: {
+										xs: "100%",
+										md: 300,
+									},
+								}}
+							>
+								<img src={post.img} loading="lazy" alt={post.title} />
+							</AspectRatio>
+							<CardContent>
+								<Typography
+									level="h2"
+									endDecorator={
+										<IconButton
+											onClick={() => router.push(`/v1/posts/${post.link}`)}
+										>
+											<IosShare color="primary" />
+										</IconButton>
+									}
+								>
+									{post.title}
+								</Typography>
+								<Typography level="body-md" sx={{ fontWeight: 600 }}>
+									{post.author} - {post.date}
+								</Typography>
+								<Typography level="body-lg">{post.description}</Typography>
+							</CardContent>
+						</Card>
+				  ))}
 		</Container>
 	);
 }
