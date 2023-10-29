@@ -95,7 +95,7 @@ export default function NavBar({ home }: { home?: boolean }) {
 					<MenuIcon />
 				</MenuButton>
 				<Menu>
-					<MenuItem sx={{ gap: 1 }}>
+					<MenuItem component="a" sx={{ gap: 1 }} href="/v1/profile/raponikt">
 						<People />
 						Account
 					</MenuItem>
@@ -117,7 +117,7 @@ export default function NavBar({ home }: { home?: boolean }) {
 						</MenuItem>
 					)}
 					<Divider />
-					<MenuItem sx={{ gap: 1 }}>
+					<MenuItem component="a" sx={{ gap: 1 }} href="/sign-in">
 						<Logout />
 						Logout
 					</MenuItem>
